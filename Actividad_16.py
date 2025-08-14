@@ -36,7 +36,25 @@ class registro_estudiantes:
             print("No hay estudiantes registrados")
 registro = registro_estudiantes()
 
-class registro_libros
+class registro_libros:
+    def __init__(self):
+        self.lista_libros = []
+
+    def registrar(self):
+        titulo = input("Ingrese el titulo del libro: ")
+        autor = input("Ingrese el nombre del autor: ")
+        ano = int(input("Ingrese el año: "))
+        codigo = int(input("Ingrese el codigo"))
+        self.lista_libros.append(biblioteca(titulo, autor, ano, codigo))
+
+    def info(self):
+        if len(self.lista_libros) > 0:
+            print("---Lista de Libros---")
+            for i in self.lista_libros:
+                print(i.info_libro())
+        else:
+            print("No hay libros registrados")
+registroL = registro_libros()
 
 class prestamos():
     pass
@@ -62,11 +80,13 @@ while a == False:
             registro.registrar()
             pass
         case 2:
+            registroL.registrar()
             pass
         case 3:
             registro.info()
             pass
         case 4:
+            registroL.info()
             pass
         case 5:
             pass
