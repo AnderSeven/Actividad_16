@@ -31,10 +31,12 @@ class registro_estudiantes:
         if len(self.lista_biblioteca) > 0:
             print("---Lista de Estudiantes---")
             for i in self.lista_biblioteca:
-                print(f"{i.info_usuarios}")
+                print(f"{i.info_usuarios()}")
         else:
             print("No hay estudiantes registrados")
 registro = registro_estudiantes()
+
+class registro_libros
 
 class prestamos():
     pass
