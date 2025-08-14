@@ -23,7 +23,15 @@ class registro_estudiantes:
 
     def registrar(self):
         nombre = input("Ingrese el nombre: ")
-        carnet = int(input("Ingrese el carnet: "))
+        s = False
+        while s == False:
+            carnet = int(input("Ingrese el carnet (numeros enteros): "))
+            for u in self.lista_biblioteca:
+                if u.carnet == carnet:
+                    print("El carnet ya esta en uso, intente de nuevo")
+                    break
+            else:
+                    s = True
         carrera = input("Ingrese la carrera: ")
         self.lista_biblioteca.append(usuarios(nombre, carnet, carrera))
 
@@ -43,8 +51,22 @@ class registro_libros:
     def registrar(self):
         titulo = input("Ingrese el titulo del libro: ")
         autor = input("Ingrese el nombre del autor: ")
-        ano = int(input("Ingrese el año: "))
-        codigo = int(input("Ingrese el codigo"))
+        s = False
+        while s == False:
+            ano = int(input("Ingrese el año (de 1000 a 2025): "))
+            if ano <= 2025 and ano >= 1000:
+                s = True
+            else:
+                print("Año invalido")
+        s = False
+        while s == False:
+            codigo = int(input("Ingrese el codigo (numeros enteros): "))
+            for u in self.lista_libros:
+                if u.codigo == codigo:
+                    print("El codigo del libro ya esta en uso, intente de nuevo")
+                    break
+            else:
+                s = True
         self.lista_libros.append(biblioteca(titulo, autor, ano, codigo))
 
     def info(self):
