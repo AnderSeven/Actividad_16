@@ -25,14 +25,16 @@ class registro_estudiantes:
         nombre = input("Ingrese el nombre: ")
         carnet = int(input("Ingrese el carnet: "))
         carrera = input("Ingrese la carrera: ")
+        self.lista_biblioteca.append(usuarios(nombre, carnet, carrera))
 
     def info(self):
         if len(self.lista_biblioteca) > 0:
             print("---Lista de Estudiantes---")
             for i in self.lista_biblioteca:
-                print(f"")
+                print(f"{i.info_usuarios}")
         else:
             print("No hay estudiantes registrados")
+registro = registro_estudiantes()
 
 class prestamos():
     pass
@@ -47,20 +49,28 @@ while a == False:
     print("---Menu---")
     print("1. Agregar estudiante")
     print("2. Agregar libro")
-    print("3. Prestar libro")
-    print("4. Devolver libro")
-    print("5. Salir")
+    print("3. Mostrar esdudiantes")
+    print("4. Mostrar libros")
+    print("5. Prestar libro")
+    print("6. Devolver libro")
+    print("7. Salir")
     opciones = int(input("Elija una opcion: "))
     match opciones:
         case 1:
+            registro.registrar()
             pass
         case 2:
             pass
         case 3:
+            registro.info()
             pass
         case 4:
             pass
         case 5:
+            pass
+        case 6:
+            pass
+        case 7:
             print("Gracias por usar el sistema")
             a = True
         case _:
